@@ -1,0 +1,60 @@
+#include "BugAlgorithms.hpp"
+
+BugAlgorithms::BugAlgorithms(Simulator * const simulator)
+{
+    m_simulator = simulator;   
+    //add your initialization of other variables
+    //that you might have declared
+
+    m_mode = STRAIGHT;
+    m_hit[0] = m_hit[1] = HUGE_VAL;
+    m_leave[0] = m_leave[1] = 0;
+    m_distLeaveToGoal = HUGE_VAL;    
+}
+
+BugAlgorithms::~BugAlgorithms(void)
+{
+    //do not delete m_simulator  
+}
+
+Move BugAlgorithms::Bug0(Sensor sensor)
+{
+    //add your implementation
+    Move move ={0.01,0.01};
+    if(can see goal)
+      m_mode = STRAIGHT;
+    if(m_mode == STRAIGHT){
+      //Move to the goal
+      // Normalize the distance of the vector from pos to goal based on step
+    } else if (m_mode == AROUND){
+      //Move around the obsticle
+      //Move orthagonal to obsticle
+    } else {
+      //ERROR CASE
+      m_mode = STRAIGHT;
+    }
+    return move;
+}
+
+Move BugAlgorithms::Bug1(Sensor sensor)
+{
+    //add your implementation
+    Move move ={0,0};
+
+    return move;
+}
+
+Move BugAlgorithms::Bug2(Sensor sensor)
+{
+
+    //add your implementation
+    Move move ={0,0};
+    
+    return move;
+}
+
+Move BugAlgorithm::norm(Move move)
+{
+  double length = std::sqrt(move.m_dx * move.m_dx + move.m_dy * move.m_dy);
+  return {move.mdx/length, move.m_dy/length);
+}
